@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<style type="text/css">
+		h1{
+			color:blue;
+			font-size:200%;
+			text-align:center;
+		}
+		h2{
+			color:red;
+			font-size:180px%;
+			text-align:center;
+		}
+		#div1{
+			color:green;
+			font-family:Comic Sans MS;
+			font-size:35px;
+			position:absolute; 
+			left:39%; 
+		}
+		h3{
+			color:black;
+			font-size:30px;
+			position:absolute;
+			left:30%;
+			top:70%;
+		}
+		#def{
+			color:red;
+			font-size:25px;
+			fonr-family:Lucida Sans Unicode;
+			position:absolute;
+			left:32%;
+			top:76%;
+		}
+	</style>
+
+</head>
+
+
+<body>
+	<h1>Interactive Dictionary</h1>
+	<h2>(Click on a Word to see its Definition)</h2>
+	<div id="div1">
+	<p id="w1"><strong>(1) Anachronism</strong></p>   
+	<p id="w2"><strong>(2) Serendipity</strong></p>
+	<p id="w3"><strong>(3) Surreptitious</strong></p>
+	<p id="w4"><strong>(4) Vicissitudes</strong></p>
+	</div>
+	<h3>Definition : </h3>
+	<p id="def"></p>
+
+<script  type="text/javascript" >
+	
+	document.getElementById("w1").addEventListener("click", function(){definition(1)});  //'click' event listener for first word-spacing
+																						 //it calls the function 'definition' with argument=1
+	document.getElementById("w1").addEventListener("mouseover",function(){mouseover(1)});//'mouseover' event listener
+	document.getElementById("w1").addEventListener("mouseout",function(){mouseout(1)});   // 'mouseout' event listener
+	
+	document.getElementById("w2").addEventListener("click", function(){definition(2)});
+	document.getElementById("w2").addEventListener("mouseover",function(){mouseover(2)});
+	document.getElementById("w2").addEventListener("mouseout",function(){mouseout(2)});
+	
+	document.getElementById("w3").addEventListener("click", function(){definition(3)});
+	document.getElementById("w3").addEventListener("mouseover",function(){mouseover(3)});
+	document.getElementById("w3").addEventListener("mouseout",function(){mouseout(3)});
+	
+	document.getElementById("w4").addEventListener("click", function(){definition(4)});
+	document.getElementById("w4").addEventListener("mouseover",function(){mouseover(4)});
+	document.getElementById("w4").addEventListener("mouseout",function(){mouseout(4)});
+	
+	//below function is called for any 'click' event on a word. It changes the innerhtml of element with id="def"
+	//and inserts the definition of correspoding word in it.
+	function definition(w){
+		if(w==1){
+		
+			document.getElementById("def").innerHTML = "a person, thing, or idea "+
+													 "that exists out of its time in<br> history,"+
+			                                         "especially one that happened or existed later <br>"+
+													 "than the period being shown, discussed, etc.";
+		}
+		else if(w==2){
+			document.getElementById("def").innerHTML = "the fact of finding interesting or valuable things by<br> chance";
+		}
+		else if(w==3){
+			document.getElementById("def").innerHTML = "done secretly, without anyone seeing or knowing";
+		}
+		else if(w==4){
+			document.getElementById("def").innerHTML = "changes that happen at different times during the <br>"+
+													   "life or development of someone or something,<br> especially "+
+													   "those that result in conditions being worse";
+		}
+		
+	}
+	
+	//mouseover function simply changes the background color to pink when cursor arrives on the word
+	function mouseover(w){
+		
+			document.getElementById("w"+w).style.background="pink";
+		
+	}
+	
+	
+	//mousout function changes background color back to white as the cursor goes out.
+	function mouseout(w){
+	
+			document.getElementById("w"+w).style.background="white";
+		
+	}
+
+
+</script>
+
+
+</body>
+</html>
